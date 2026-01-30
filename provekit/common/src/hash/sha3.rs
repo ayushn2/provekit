@@ -156,7 +156,7 @@ impl Config for Sha3MerkleConfig {
 
 //
 // ----------------------------
-// WHIR glue (same pattern as skyscraper)
+// WHIR glue
 // ----------------------------
 //
 

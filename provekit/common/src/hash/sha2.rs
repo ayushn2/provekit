@@ -173,7 +173,7 @@ impl Config for Sha2MerkleConfig {
 
 //
 // ----------------------------
-// WHIR glue (same as skyscraper)
+// WHIR glue
 // ----------------------------
 //
 

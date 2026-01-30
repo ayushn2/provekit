@@ -137,15 +137,6 @@ results = []
 for feature in FEATURES:
     print(f"\n===== BENCHMARKING {feature.upper()} =====", flush=True)
 
-    # print(f"Building for {feature}...", flush=True)
-    # subprocess.run([
-    #     "cargo", "build",
-    #     "--release",
-    #     "--no-default-features",
-    #     "--features", feature,
-    #     "--bin", "provekit-cli"
-    # ], check=True, stdout=sys.stdout, stderr=sys.stderr)
-
     prepare_times = []
     prove_times = []
     verify_times = []
@@ -170,7 +161,6 @@ for feature in FEATURES:
                 "--pkv", "verifier.pkv"
             ],)
         )
-        # prepare_times.append(extract(RE_TIME, out_prepare, float, "prepare time"))
 
         pkp_sizes.append(file_size("prover.pkp"))
         pkv_sizes.append(file_size("verifier.pkv"))
@@ -203,10 +193,6 @@ for feature in FEATURES:
 
     results.append({
         "hash": feature,
-
-        # Core metrics
-        # "prepare_time_mean_ms": statistics.mean(prepare_times),
-        # "prepare_time_var": statistics.pvariance(prepare_times),
 
         "prover_time_mean_ms": statistics.mean(prove_times),
         "prover_time_var": statistics.pvariance(prove_times),

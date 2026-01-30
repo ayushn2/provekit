@@ -168,7 +168,7 @@ impl Config for Blake3MerkleConfig {
 
 //
 // ----------------------------
-// WHIR glue (same as skyscraper)
+// WHIR glue 
 // ----------------------------
 //
 
