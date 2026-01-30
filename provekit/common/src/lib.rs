@@ -6,6 +6,7 @@ mod r1cs;
 pub mod skyscraper;
 mod sparse_matrix;
 pub mod utils;
+pub mod hash;
 mod verifier;
 mod whir_r1cs;
 pub mod witness;

@@ -2,7 +2,7 @@ use {
     anyhow::{ensure, Context, Result},
     ark_std::{One, Zero},
     provekit_common::{
-        skyscraper::SkyscraperSponge,
+        hash::ActiveSponge,
         utils::{
             sumcheck::{
                 calculate_eq, calculate_evaluations_over_boolean_hypercube_for_eq, eval_cubic_poly,
@@ -289,7 +289,7 @@ fn update_statement_for_witness_verifier(
 
 #[instrument(skip_all)]
 pub fn run_sumcheck_verifier(
-    arthur: &mut VerifierState<SkyscraperSponge, FieldElement>,
+    arthur: &mut VerifierState<ActiveSponge, FieldElement>,
     m_0: usize,
     whir_for_spartan_blinding_config: &WhirConfig,
 ) -> Result<DataFromSumcheckVerifier> {
@@ -355,7 +355,7 @@ pub fn run_sumcheck_verifier(
 
 #[instrument(skip_all)]
 pub fn run_whir_pcs_verifier(
-    arthur: &mut VerifierState<SkyscraperSponge, FieldElement>,
+    arthur: &mut VerifierState<ActiveSponge, FieldElement>,
     parsed_commitment: &ParsedCommitment<FieldElement, FieldElement>,
     params: &WhirConfig,
     statement_verifier: &Statement<FieldElement>,
@@ -369,7 +369,7 @@ pub fn run_whir_pcs_verifier(
 
 #[instrument(skip_all)]
 pub fn run_whir_pcs_batch_verifier(
-    arthur: &mut VerifierState<SkyscraperSponge, FieldElement>,
+    arthur: &mut VerifierState<ActiveSponge, FieldElement>,
     params: &WhirConfig,
     parsed_commitments: &[ParsedCommitment<FieldElement, FieldElement>],
     statements: &[Statement<FieldElement>],

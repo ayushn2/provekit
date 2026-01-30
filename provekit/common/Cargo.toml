@@ -41,6 +41,17 @@ tracing.workspace = true
 zerocopy.workspace = true
 zeroize.workspace = true
 zstd.workspace = true
+sha2 = "0.10"
+sha3 = "0.10"
+blake3 = "1"
 
 [lints]
 workspace = true
+
+[features]
+default = ["skyscraper"]
+
+sha2 = []
+sha3 = []
+blake3 = []
+skyscraper = []

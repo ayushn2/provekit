@@ -46,6 +46,8 @@ fn main() -> Result<()> {
 
     subscriber::set_global_default(subscriber)?;
 
+    provekit_common::hash::confirm_hash();
+
     // Run CLI command
     let res = args.run();
 

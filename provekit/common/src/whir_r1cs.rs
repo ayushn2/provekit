@@ -1,6 +1,6 @@
 use {
     crate::{
-        skyscraper::{SkyscraperMerkleConfig, SkyscraperPoW, SkyscraperSponge},
+        hash::{ActiveSponge, ActiveMerkleConfig, ActivePoW},
         utils::{serde_hex, sumcheck::SumcheckIOPattern},
         witness::WitnessIOPattern,
         FieldElement,
@@ -12,8 +12,8 @@ use {
     whir::whir::{domainsep::WhirDomainSeparator, parameters::WhirConfig as GenericWhirConfig},
 };
 
-pub type WhirConfig = GenericWhirConfig<FieldElement, SkyscraperMerkleConfig, SkyscraperPoW>;
-pub type IOPattern = DomainSeparator<SkyscraperSponge, FieldElement>;
+pub type WhirConfig = GenericWhirConfig<FieldElement, ActiveMerkleConfig, ActivePoW>;
+pub type IOPattern = DomainSeparator<ActiveSponge, FieldElement>;
 
 #[derive(Clone, PartialEq, Serialize, Deserialize)]
 pub struct WhirR1CSScheme {

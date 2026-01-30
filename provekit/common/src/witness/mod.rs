@@ -8,7 +8,7 @@ mod witness_io_pattern;
 
 use {
     crate::{
-        skyscraper::SkyscraperCRH,
+        hash::ActiveCRH,
         utils::{serde_ark, serde_ark_vec},
         FieldElement,
     },
@@ -73,9 +73,9 @@ impl PublicInputs {
             1 => {
                 // For single element, hash it with zero to ensure it gets properly hashed
                 let padded = vec![self.0[0], FieldElement::from(0u64)];
-                SkyscraperCRH::evaluate(&(), &padded[..]).expect("hash should succeed")
+                ActiveCRH::evaluate(&(), &padded[..]).expect("hash should succeed")
             }
-            _ => SkyscraperCRH::evaluate(&(), &self.0[..])
+            _ => ActiveCRH::evaluate(&(), &self.0[..])
                 .expect("hash should succeed for multiple inputs"),
         }
     }
